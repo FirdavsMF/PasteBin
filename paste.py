@@ -106,7 +106,8 @@ async def paste(client, message: Message):
     _paste = spacebin(text, file_type)
     
     if isinstance(_paste, dict) and _paste['link'] != f"https://spaceb.in/None":
-        await message.reply("Pasted to **SpaceBin**",
+        await huehue.delete()
+        await message.reply_text("Pasted to **SpaceBin**",
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                      InlineKeyboardButton(
@@ -119,9 +120,16 @@ async def paste(client, message: Message):
         try:
             _pastee = dogbin(text, file_type)
             if isinstance(_pastee, dict):
-                dgbin = _pastee['link']
-                draw = _pastee['raw']
-                await huehue.edit(f"__SpaceBin Down__ \n**Pasted to [DogBin]({dgbin}) | [Raw]({draw})**", disable_web_page_preview=True)
+                await huehue.delete()
+                await message.reply_text("Pasted to **SpaceBin**",
+                                    reply_markup=InlineKeyboardMarkup(
+                                        [[
+                                             InlineKeyboardButton(
+                                                    "DogBin", url=f"{_pastee['link']}"),
+                                             InlineKeyboardButton(
+                                                    "Raw", url=f"{_pastee['raw']}")
+                                            ]]
+                                    ))
             else:
                 await huehue.edit(f"{str(e)}")
         except Exception as ex:
