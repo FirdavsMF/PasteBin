@@ -1,0 +1,5 @@
+Pyrogram
+asyncio
+requests
+ujson
+aiofiles
