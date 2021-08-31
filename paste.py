@@ -69,6 +69,19 @@ def dogbin(text, ext="txt"):
 DOWNLOAD_DIR = "/app/pastebin/"
 
 
+@bot.on_message(filters.command("start"))
+async def start(_, message):
+   await message.reply("**This is a PasteBin Bot maintained by** @SiderzBot\n**Usage:** `/paste`",   
+                        reply_markup=InlineKeyboardMarkup(
+                            [[
+                                 InlineKeyboardButton(
+                                        "Source", url="https://github.com/iamnoob937/PasteBot"),
+                                 InlineKeyboardButton(
+                                        "Support", url="t.me/SiderzChat")
+                                ]]
+                        ))
+
+
 @bot.on_message(filters.command("paste"))
 async def paste(client, message: Message):
     replied = message.reply_to_message
