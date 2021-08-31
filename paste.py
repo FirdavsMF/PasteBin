@@ -75,7 +75,7 @@ async def start(_, message):
                         reply_markup=InlineKeyboardMarkup(
                             [[
                                  InlineKeyboardButton(
-                                        "Source", url="https://github.com/iamnoob937/PasteBot"),
+                                        "Source", url="https://github.com/Sammy-XD/PasteBin"),
                                  InlineKeyboardButton(
                                         "Support", url="t.me/SiderzChat")
                                 ]]
