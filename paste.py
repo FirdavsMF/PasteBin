@@ -4,7 +4,7 @@ import aiofiles
 import json
 import requests
 from pyrogram import Client, filters, idle
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 
 API_ID = int(os.getenv("API_ID", "6"))
 API_HASH = os.getenv("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
@@ -106,9 +106,15 @@ async def paste(client, message: Message):
     _paste = spacebin(text, file_type)
     
     if isinstance(_paste, dict) and _paste['link'] != f"https://spaceb.in/None":
-        c1m = f"<b>Pasted to <a href='{_paste['link']}'>{_paste['bin']}</a> "\
-        f"| <a href='{_paste['raw']}'>Raw</a></b>"
-        await huehue.edit(c1m, parse_mode="html", disable_web_page_preview=True)
+        await message.reply("Pasted to **SpaceBin**",
+                            reply_markup=InlineKeyboardMarkup(
+                                [[
+                                     InlineKeyboardButton(
+                                            "SpaceBin", url=f"{_paste['link']}"),
+                                     InlineKeyboardButton(
+                                            "Raw", url=f"{_paste['raw']}")
+                                    ]]
+                            ))
     else:
         try:
             _pastee = dogbin(text, file_type)
