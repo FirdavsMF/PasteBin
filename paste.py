@@ -121,3 +121,5 @@ async def paste(_, message: Message):
         except Exception as ex:
             await huehue.edit(str(ex))
 
+bot.start()
+idle()
