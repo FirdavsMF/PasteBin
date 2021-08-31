@@ -1,0 +1,29 @@
+{
+    "name": "PasteBin",
+    "description": "A telegram bot that can paste files",
+    "logo": "https://telegra.ph/file/9db87c9cbaa9081de4940.jpg",
+    "keywords": [
+        "SiderzBot",
+        "PasteBin",
+        "TelegramBot"
+    ],
+    "repository": "https://github.com/Sammy-XD/PasteBin",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your Telegram Bot Token from @BotFather",
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
