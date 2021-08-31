@@ -121,7 +121,7 @@ async def paste(client, message: Message):
             _pastee = dogbin(text, file_type)
             if isinstance(_pastee, dict):
                 await huehue.delete()
-                await message.reply_text("Pasted to **SpaceBin**",
+                await message.reply_text(f"__SpaceBin Down!__ \nPasted to **DogBin**",
                                     reply_markup=InlineKeyboardMarkup(
                                         [[
                                              InlineKeyboardButton(
