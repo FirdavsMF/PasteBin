@@ -70,7 +70,7 @@ DOWNLOAD_DIR = "/app/pastebin/"
 
 
 @bot.on_message(filters.command("paste"))
-async def paste(_, message: Message):
+async def paste(client, message: Message):
     replied = message.reply_to_message
     file_type = "txt"
     if replied:
